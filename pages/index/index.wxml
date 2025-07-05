@@ -1,0 +1,92 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 头部欢迎区域 -->
+  <view class="header-section">
+    <view class="title gradient-text floating">{{motto}}</view>
+    <view class="subtitle">🌟 为你的萌宠预测今日运势 🌟</view>
+  </view>
+
+  <!-- 用户信息区域 -->
+  <view class="user-section card">
+    <view wx:if="{{!hasUserInfo && canIUseGetUserProfile}}">
+      <button class="btn-primary" bindtap="getUserProfile"> 获取头像昵称 </button>
+    </view>
+    <view wx:elif="{{!hasUserInfo && canIUse}}">
+      <button class="btn-primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    </view>
+    <view wx:else class="userinfo">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+  </view>
+
+  <!-- 今日运势预览 -->
+  <view class="fortune-preview card">
+    <view class="section-title">🔮 今日运势预览</view>
+    <view class="fortune-grid">
+      <view class="fortune-item">
+        <view class="fortune-label">综合运势</view>
+        <view class="fortune-value" style="color: {{todayFortune.lucky_color}}">{{todayFortune.overall}}%</view>
+      </view>
+      <view class="fortune-item">
+        <view class="fortune-label">爱情运势</view>
+        <view class="fortune-value" style="color: #FF1493">{{todayFortune.love}}%</view>
+      </view>
+      <view class="fortune-item">
+        <view class="fortune-label">健康运势</view>
+        <view class="fortune-value" style="color: #32CD32">{{todayFortune.health}}%</view>
+      </view>
+      <view class="fortune-item">
+        <view class="fortune-label">财富运势</view>
+        <view class="fortune-value" style="color: #FFD700">{{todayFortune.wealth}}%</view>
+      </view>
+    </view>
+    <view class="lucky-info">
+      <view class="lucky-item">
+        <text class="lucky-label">幸运色：</text>
+        <view class="lucky-color" style="background-color: {{todayFortune.lucky_color}}"></view>
+      </view>
+      <view class="lucky-item">
+        <text class="lucky-label">幸运数字：</text>
+        <text class="lucky-number">{{todayFortune.lucky_number}}</text>
+      </view>
+    </view>
+    <view class="fortune-advice">{{todayFortune.advice}}</view>
+  </view>
+
+  <!-- 宠物类型选择 -->
+  <view class="pet-types card">
+    <view class="section-title">🐾 选择你的萌宠类型</view>
+    <view class="pet-grid">
+      <view 
+        wx:for="{{petTypes}}" 
+        wx:key="id" 
+        class="pet-type-item" 
+        style="border-color: {{item.color}}"
+        data-pet="{{item}}"
+        bindtap="selectPetType"
+      >
+        <view class="pet-icon">{{item.icon}}</view>
+        <view class="pet-name" style="color: {{item.color}}">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷操作按钮 -->
+  <view class="action-buttons">
+    <button class="btn-primary" bindtap="goToProfile">
+      🏠 宠物档案
+    </button>
+    <button class="btn-secondary" bindtap="goToFortune">
+      🔮 开始占卜
+    </button>
+  </view>
+
+  <!-- 装饰元素 -->
+  <view class="decoration">
+    <view class="star star-1">⭐</view>
+    <view class="star star-2">✨</view>
+    <view class="star star-3">🌟</view>
+    <view class="star star-4">💫</view>
+  </view>
+</view>

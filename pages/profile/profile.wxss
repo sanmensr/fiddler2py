@@ -1,0 +1,243 @@
+/**profile.wxss**/
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+}
+
+.avatar-section {
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.avatar-container {
+  display: inline-block;
+  position: relative;
+}
+
+.pet-avatar {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  border: 6rpx solid #FF69B4;
+  box-shadow: 0 10rpx 30rpx rgba(255, 105, 180, 0.3);
+}
+
+.avatar-placeholder {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  border: 6rpx dashed #FF69B4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.avatar-icon {
+  font-size: 60rpx;
+  color: #FF69B4;
+  margin-bottom: 10rpx;
+}
+
+.avatar-text {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.info-section, .appearance-section, .personality-section {
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #FF1493;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 15rpx;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 20rpx;
+  border: 2rpx solid #FFB6C1;
+  border-radius: 15rpx;
+  font-size: 30rpx;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.display-value {
+  padding: 20rpx;
+  background: rgba(255, 182, 193, 0.2);
+  border-radius: 15rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.pet-type-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15rpx;
+}
+
+.pet-type-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  border: 2rpx solid #FFB6C1;
+  border-radius: 15rpx;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.pet-type-option.selected {
+  border-color: #FF69B4;
+  background: rgba(255, 105, 180, 0.1);
+  transform: scale(1.05);
+}
+
+.type-icon {
+  font-size: 40rpx;
+  margin-bottom: 10rpx;
+}
+
+.type-name {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.gender-options {
+  display: flex;
+  gap: 20rpx;
+}
+
+.gender-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+  border: 2rpx solid #FFB6C1;
+  border-radius: 15rpx;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.gender-option.selected {
+  border-color: #FF69B4;
+  background: rgba(255, 105, 180, 0.1);
+}
+
+.gender-icon {
+  font-size: 30rpx;
+  margin-right: 10rpx;
+}
+
+.gender-name {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.date-picker {
+  width: 100%;
+}
+
+.picker-display {
+  padding: 20rpx;
+  border: 2rpx solid #FFB6C1;
+  border-radius: 15rpx;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 30rpx;
+  color: #666;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15rpx;
+}
+
+.color-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  border: 2rpx solid #FFB6C1;
+  border-radius: 15rpx;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.color-option.selected {
+  border-color: #FF69B4;
+  background: rgba(255, 105, 180, 0.1);
+  transform: scale(1.05);
+}
+
+.color-circle {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+}
+
+.color-name {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.personality-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15rpx;
+}
+
+.personality-option {
+  padding: 25rpx;
+  border: 2rpx solid #FFB6C1;
+  border-radius: 15rpx;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.personality-option.selected {
+  border-color: #FF69B4;
+  background: rgba(255, 105, 180, 0.1);
+  transform: scale(1.02);
+}
+
+.personality-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #FF1493;
+  margin-bottom: 8rpx;
+}
+
+.personality-desc {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.4;
+}
+
+.action-section {
+  text-align: center;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.save-btn, .edit-btn {
+  width: 400rpx;
+  font-size: 32rpx;
+}

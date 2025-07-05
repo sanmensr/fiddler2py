@@ -1,0 +1,205 @@
+/**index.wxss**/
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.user-section {
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  border: 4rpx solid #FF69B4;
+}
+
+.userinfo-nickname {
+  color: #FF1493;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.fortune-preview {
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #FF1493;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.fortune-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.fortune-item {
+  text-align: center;
+  padding: 20rpx;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 15rpx;
+}
+
+.fortune-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.fortune-value {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.lucky-info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20rpx;
+}
+
+.lucky-item {
+  display: flex;
+  align-items: center;
+}
+
+.lucky-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+
+.lucky-color {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid #fff;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
+}
+
+.lucky-number {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #FF69B4;
+}
+
+.fortune-advice {
+  background: linear-gradient(45deg, #FFE4E1, #FFF0F5);
+  padding: 20rpx;
+  border-radius: 15rpx;
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.pet-types {
+  margin-bottom: 40rpx;
+}
+
+.pet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+
+.pet-type-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx 20rpx;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20rpx;
+  border: 3rpx solid transparent;
+  transition: all 0.3s ease;
+}
+
+.pet-type-item:active {
+  transform: scale(0.95);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.pet-icon {
+  font-size: 60rpx;
+  margin-bottom: 15rpx;
+}
+
+.pet-name {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40rpx;
+}
+
+.action-buttons button {
+  width: 300rpx;
+}
+
+.decoration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  font-size: 40rpx;
+  animation: twinkle 2s infinite;
+}
+
+.star-1 {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.star-2 {
+  top: 20%;
+  right: 15%;
+  animation-delay: 0.5s;
+}
+
+.star-3 {
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.star-4 {
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
