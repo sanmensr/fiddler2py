@@ -1,0 +1,281 @@
+/**history.wxss**/
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+}
+
+.filter-section {
+  margin-bottom: 30rpx;
+}
+
+.filter-scroll {
+  white-space: nowrap;
+}
+
+.filter-list {
+  display: inline-flex;
+  gap: 15rpx;
+  padding: 10rpx 0;
+}
+
+.filter-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 15rpx 25rpx;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2rpx solid #FFB6C1;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  color: #666;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.filter-item.active {
+  background: #FF69B4;
+  border-color: #FF69B4;
+  color: white;
+  transform: scale(1.05);
+}
+
+.filter-icon {
+  font-size: 24rpx;
+}
+
+.filter-name {
+  font-size: 26rpx;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 150rpx 50rpx;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: 30rpx;
+  opacity: 0.6;
+}
+
+.empty-title {
+  font-size: 36rpx;
+  color: #FF1493;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.empty-desc {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 50rpx;
+  line-height: 1.5;
+}
+
+.history-list {
+  margin-bottom: 30rpx;
+}
+
+.history-item {
+  margin-bottom: 20rpx;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.history-item:active {
+  transform: scale(0.98);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.item-title {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.title-icon {
+  font-size: 32rpx;
+}
+
+.title-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #FF1493;
+}
+
+.item-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.item-pet {
+  margin-bottom: 20rpx;
+}
+
+.pet-name {
+  font-size: 30rpx;
+  color: #FF69B4;
+  font-weight: bold;
+}
+
+.pet-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.item-scores {
+  margin-bottom: 20rpx;
+}
+
+.score-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15rpx;
+}
+
+.score-item {
+  text-align: center;
+  padding: 15rpx;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10rpx;
+}
+
+.score-label {
+  font-size: 22rpx;
+  color: #666;
+  margin-bottom: 5rpx;
+}
+
+.score-value {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.item-lucky {
+  margin-bottom: 15rpx;
+}
+
+.lucky-preview {
+  display: flex;
+  align-items: center;
+  gap: 15rpx;
+  padding: 15rpx;
+  background: rgba(255, 182, 193, 0.1);
+  border-radius: 10rpx;
+}
+
+.lucky-color-preview {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  border: 2rpx solid #fff;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.1);
+}
+
+.lucky-number-preview {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #FF69B4;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 5rpx 15rpx;
+  border-radius: 15rpx;
+}
+
+.lucky-item-preview {
+  font-size: 24rpx;
+  color: #666;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 5rpx 15rpx;
+  border-radius: 15rpx;
+}
+
+.item-actions {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+
+.action-btn {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  transition: all 0.3s ease;
+}
+
+.delete-btn {
+  background: rgba(255, 99, 71, 0.1);
+  border: 2rpx solid #FF6347;
+}
+
+.delete-btn:active {
+  background: rgba(255, 99, 71, 0.2);
+  transform: scale(0.9);
+}
+
+.bottom-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30rpx;
+}
+
+.bottom-actions button {
+  width: 300rpx;
+}
+
+.btn-danger {
+  background: linear-gradient(45deg, #FF6347, #FF4500);
+  color: white;
+  border: none;
+  border-radius: 50rpx;
+  padding: 20rpx 40rpx;
+  font-size: 32rpx;
+  box-shadow: 0 8rpx 20rpx rgba(255, 99, 71, 0.3);
+}
+
+.btn-danger:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 4rpx 10rpx rgba(255, 99, 71, 0.3);
+}
+
+.stats-section {
+  margin-bottom: 50rpx;
+}
+
+.stats-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #FF1493;
+  text-align: center;
+  margin-bottom: 25rpx;
+}
+
+.stats-content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.stat-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #FF69B4;
+}

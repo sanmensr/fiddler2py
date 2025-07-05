@@ -1,0 +1,131 @@
+<!--fortune.wxml-->
+<view class="container">
+  <!-- 宠物信息展示 -->
+  <view wx:if="{{petProfile && !isCalculating && !showResult}}" class="pet-info card">
+    <view class="pet-header">
+      <image wx:if="{{petProfile.avatar}}" class="pet-avatar" src="{{petProfile.avatar}}" mode="aspectFill" />
+      <view wx:else class="pet-avatar-placeholder">🐾</view>
+      <view class="pet-details">
+        <view class="pet-name">{{petProfile.name}}</view>
+        <view class="pet-meta">{{petProfile.type}} · {{petProfile.gender === 'male' ? '♂️' : '♀️'}} · {{petProfile.birthday}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 运势类型选择 -->
+  <view wx:if="{{!isCalculating && !showResult}}" class="fortune-types">
+    <view class="section-title">🔮 选择占卜类型</view>
+    <view class="types-grid">
+      <view 
+        wx:for="{{fortuneTypes}}" 
+        wx:key="id" 
+        class="fortune-type-card"
+        data-type="{{item.id}}"
+        bindtap="startFortuneTelling"
+      >
+        <view class="type-icon">{{item.icon}}</view>
+        <view class="type-name">{{item.name}}</view>
+        <view class="type-desc">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 计算中动画 -->
+  <view wx:if="{{isCalculating}}" class="calculating-section">
+    <view class="calculating-animation">
+      <view class="crystal floating">🔮</view>
+      <view class="stars">
+        <view class="star">⭐</view>
+        <view class="star">✨</view>
+        <view class="star">🌟</view>
+        <view class="star">💫</view>
+      </view>
+    </view>
+    <view class="calculating-text">{{steps[currentStep]}}</view>
+    <view class="progress-bar">
+      <view class="progress" style="width: {{(currentStep + 1) / steps.length * 100}}%"></view>
+    </view>
+  </view>
+
+  <!-- 运势结果 -->
+  <view wx:if="{{showResult && fortuneResult}}" class="result-section">
+    <!-- 结果标题 -->
+    <view class="result-header card">
+      <view class="result-title">{{fortuneResult.title}}</view>
+      <view class="result-date">{{fortuneResult.date}}</view>
+      <view class="result-summary">{{fortuneResult.summary}}</view>
+    </view>
+
+    <!-- 运势评分 -->
+    <view class="scores-section card">
+      <view class="section-title">📊 运势评分</view>
+      <view class="scores-grid">
+        <view class="score-item">
+          <view class="score-label">综合运势</view>
+          <view class="score-bar">
+            <view class="score-fill" style="width: {{fortuneResult.scores.overall}}%; background: #FF69B4;"></view>
+          </view>
+          <view class="score-value">{{fortuneResult.scores.overall}}%</view>
+        </view>
+        <view class="score-item">
+          <view class="score-label">爱情运势</view>
+          <view class="score-bar">
+            <view class="score-fill" style="width: {{fortuneResult.scores.love}}%; background: #FF1493;"></view>
+          </view>
+          <view class="score-value">{{fortuneResult.scores.love}}%</view>
+        </view>
+        <view class="score-item">
+          <view class="score-label">健康运势</view>
+          <view class="score-bar">
+            <view class="score-fill" style="width: {{fortuneResult.scores.health}}%; background: #32CD32;"></view>
+          </view>
+          <view class="score-value">{{fortuneResult.scores.health}}%</view>
+        </view>
+        <view class="score-item">
+          <view class="score-label">财富运势</view>
+          <view class="score-bar">
+            <view class="score-fill" style="width: {{fortuneResult.scores.wealth}}%; background: #FFD700;"></view>
+          </view>
+          <view class="score-value">{{fortuneResult.scores.wealth}}%</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 幸运元素 -->
+    <view class="lucky-section card">
+      <view class="section-title">🍀 幸运元素</view>
+      <view class="lucky-grid">
+        <view class="lucky-item">
+          <view class="lucky-icon">🎨</view>
+          <view class="lucky-label">幸运色</view>
+          <view class="lucky-color" style="background: {{fortuneResult.luckyColor}};"></view>
+        </view>
+        <view class="lucky-item">
+          <view class="lucky-icon">🔢</view>
+          <view class="lucky-label">幸运数字</view>
+          <view class="lucky-number">{{fortuneResult.luckyNumber}}</view>
+        </view>
+        <view class="lucky-item">
+          <view class="lucky-icon">🎁</view>
+          <view class="lucky-label">幸运物品</view>
+          <view class="lucky-text">{{fortuneResult.luckyItem}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 建议 -->
+    <view class="advice-section card">
+      <view class="section-title">💡 贴心建议</view>
+      <view class="advice-content">
+        <view class="advice-icon">🌟</view>
+        <view class="advice-text">{{fortuneResult.advice}}</view>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="result-actions">
+      <button class="btn-secondary" bindtap="shareResult">📤 分享结果</button>
+      <button class="btn-primary" bindtap="backToHome">🏠 返回首页</button>
+    </view>
+  </view>
+</view>

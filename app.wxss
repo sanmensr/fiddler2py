@@ -1,0 +1,107 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 50%, #E6E6FA 100%);
+}
+
+/* 全局字体 */
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 50%, #E6E6FA 100%);
+  min-height: 100vh;
+}
+
+/* 卡片样式 */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20rpx;
+  box-shadow: 0 10rpx 30rpx rgba(255, 105, 180, 0.1);
+  padding: 30rpx;
+  margin: 20rpx;
+  backdrop-filter: blur(10px);
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background: linear-gradient(45deg, #FF69B4, #FF1493);
+  color: white;
+  border: none;
+  border-radius: 50rpx;
+  padding: 20rpx 40rpx;
+  font-size: 32rpx;
+  box-shadow: 0 8rpx 20rpx rgba(255, 105, 180, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 4rpx 10rpx rgba(255, 105, 180, 0.3);
+}
+
+.btn-secondary {
+  background: linear-gradient(45deg, #DDA0DD, #DA70D6);
+  color: white;
+  border: none;
+  border-radius: 50rpx;
+  padding: 15rpx 30rpx;
+  font-size: 28rpx;
+  box-shadow: 0 6rpx 15rpx rgba(221, 160, 221, 0.3);
+}
+
+/* 标题样式 */
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #FF1493;
+  text-align: center;
+  margin: 30rpx 0;
+  text-shadow: 2rpx 2rpx 4rpx rgba(255, 105, 180, 0.2);
+}
+
+.subtitle {
+  font-size: 36rpx;
+  color: #DA70D6;
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+/* 宠物头像 */
+.pet-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 6rpx solid #FF69B4;
+  box-shadow: 0 8rpx 20rpx rgba(255, 105, 180, 0.3);
+}
+
+/* 星座图标 */
+.zodiac-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 10rpx;
+}
+
+/* 动画效果 */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 渐变文字 */
+.gradient-text {
+  background: linear-gradient(45deg, #FF69B4, #DA70D6, #9370DB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}

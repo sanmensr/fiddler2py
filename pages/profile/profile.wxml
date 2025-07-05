@@ -1,0 +1,162 @@
+<!--profile.wxml-->
+<view class="container">
+  <view class="title">🏠 宠物档案</view>
+  
+  <!-- 宠物头像 -->
+  <view class="avatar-section card">
+    <view class="avatar-container" bindtap="{{isEditing ? '' : 'chooseAvatar'}}">
+      <image 
+        wx:if="{{petProfile.avatar}}" 
+        class="pet-avatar" 
+        src="{{petProfile.avatar}}" 
+        mode="aspectFill"
+        bindtap="previewAvatar"
+      />
+      <view wx:else class="avatar-placeholder">
+        <text class="avatar-icon">📷</text>
+        <text class="avatar-text">{{isEditing ? '点击查看' : '点击上传头像'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="info-section card">
+    <view class="section-title">📝 基本信息</view>
+    
+    <!-- 宠物姓名 -->
+    <view class="form-item">
+      <view class="label">宠物姓名</view>
+      <input 
+        wx:if="{{!isEditing}}"
+        class="input" 
+        placeholder="给你的宠物起个可爱的名字吧" 
+        value="{{petProfile.name}}"
+        data-field="name"
+        bindinput="onInputChange"
+      />
+      <view wx:else class="display-value">{{petProfile.name}}</view>
+    </view>
+
+    <!-- 宠物类型 -->
+    <view class="form-item">
+      <view class="label">宠物类型</view>
+      <view wx:if="{{!isEditing}}" class="pet-type-grid">
+        <view 
+          wx:for="{{petTypes}}" 
+          wx:key="id" 
+          class="pet-type-option {{petProfile.type === item.name ? 'selected' : ''}}"
+          data-type="{{item}}"
+          bindtap="selectPetType"
+        >
+          <text class="type-icon">{{item.icon}}</text>
+          <text class="type-name">{{item.name}}</text>
+        </view>
+      </view>
+      <view wx:else class="display-value">{{petProfile.type}}</view>
+    </view>
+
+    <!-- 性别 -->
+    <view class="form-item">
+      <view class="label">性别</view>
+      <view wx:if="{{!isEditing}}" class="gender-options">
+        <view 
+          wx:for="{{genders}}" 
+          wx:key="id" 
+          class="gender-option {{petProfile.gender === item.id ? 'selected' : ''}}"
+          data-gender="{{item}}"
+          bindtap="selectGender"
+        >
+          <text class="gender-icon">{{item.icon}}</text>
+          <text class="gender-name">{{item.name}}</text>
+        </view>
+      </view>
+      <view wx:else class="display-value">
+        {{petProfile.gender === 'male' ? '男孩子 ♂️' : petProfile.gender === 'female' ? '女孩子 ♀️' : ''}}
+      </view>
+    </view>
+
+    <!-- 生日 -->
+    <view class="form-item">
+      <view class="label">生日</view>
+      <picker 
+        wx:if="{{!isEditing}}"
+        mode="date" 
+        value="{{petProfile.birthday}}" 
+        bindchange="onDateChange"
+        class="date-picker"
+      >
+        <view class="picker-display">
+          {{petProfile.birthday || '请选择生日'}}
+        </view>
+      </picker>
+      <view wx:else class="display-value">{{petProfile.birthday}}</view>
+    </view>
+  </view>
+
+  <!-- 外观特征 -->
+  <view class="appearance-section card">
+    <view class="section-title">🎨 外观特征</view>
+    
+    <!-- 毛色 -->
+    <view class="form-item">
+      <view class="label">主要毛色</view>
+      <view wx:if="{{!isEditing}}" class="color-grid">
+        <view 
+          wx:for="{{colors}}" 
+          wx:key="id" 
+          class="color-option {{petProfile.color === item.id ? 'selected' : ''}}"
+          data-color="{{item}}"
+          bindtap="selectColor"
+        >
+          <view class="color-circle" style="background: {{item.color}}; border: 2rpx solid #ddd;"></view>
+          <text class="color-name">{{item.name}}</text>
+        </view>
+      </view>
+      <view wx:else class="display-value">
+        <view wx:for="{{colors}}" wx:key="id" wx:if="{{petProfile.color === item.id}}">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 性格特征 -->
+  <view class="personality-section card">
+    <view class="section-title">💝 性格特征</view>
+    <view wx:if="{{!isEditing}}" class="personality-grid">
+      <view 
+        wx:for="{{personalities}}" 
+        wx:key="id" 
+        class="personality-option {{petProfile.personality === item.id ? 'selected' : ''}}"
+        data-personality="{{item}}"
+        bindtap="selectPersonality"
+      >
+        <view class="personality-name">{{item.name}}</view>
+        <view class="personality-desc">{{item.desc}}</view>
+      </view>
+    </view>
+    <view wx:else class="display-value">
+      <view wx:for="{{personalities}}" wx:key="id" wx:if="{{petProfile.personality === item.id}}">
+        {{item.name}} - {{item.desc}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-section">
+    <button 
+      wx:if="{{!isEditing}}" 
+      class="btn-primary save-btn" 
+      bindtap="savePetProfile"
+    >
+      💾 保存档案
+    </button>
+    <button 
+      wx:else 
+      class="btn-secondary edit-btn" 
+      bindtap="editProfile"
+    >
+      ✏️ 编辑档案
+    </button>
+  </view>
+</view>
